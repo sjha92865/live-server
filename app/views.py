@@ -15,7 +15,7 @@ def newproject(request):
 def mend2(request):
     # datas=req
     # return JsonResponse({'data':datas})
-    print('hello')
+    # print('hello')
     url= request.POST.get("first_name")
 
     r = requests.get(url)
@@ -32,10 +32,10 @@ def mend2(request):
         "description":description["content"] if url else "No meta description given"
     }
     
-    print(title["content"] if title else "No meta title given")
-    print(url["content"] if url else "No meta url given")
-    print(image["content"] if url else "No meta image given")
+    # print(title["content"] if title else "No meta title given")
+    # print(url["content"] if url else "No meta url given")
+    # print(image["content"] if url else "No meta image given")
 
-    print(description["content"] if url else "No meta description given")
-    print(datas)
+    # print(description["content"] if url else "No meta description given")
+    # print(datas)
     return JsonResponse(datas)

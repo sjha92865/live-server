@@ -54,9 +54,9 @@
         body.loading #load {
             display: block;
         }
-        .container{
+        /* .container{
             padding: 4rem;
-        }
+        } */
                
     </style>
 </head>
@@ -93,11 +93,11 @@
                 <input type="url" class="form-control" id="basic-url" name="basic-url" aria-describedby="basic-addon3">
             </div>
 
-            <!-- <div class="row  justify-content-center">
+            <div class="row  justify-content-center">
                 <div class="col-2">
                     <button class="btn btn-outline-secondary" type="submit"><i class="fa-brands fa-searchengin">SEARCH</i></button>
                 </div>
-            </div> -->
+            </div>
         </form>
         <div class="modal" id="load">Please Wait....</div>
         
@@ -115,11 +115,12 @@
         ajaxStop: function() { $body.removeClass("loading"); }    
     });
 
-    $('#basic-url').on('change', function(e){
-        console.log("hhh")
-        console.log($('#basic-url').val())
+    $('#form-id').on('submit', function(e){
+        e.preventDefault();
+
+        // console.log("hhh")
+        // console.log($('#basic-url').val())
              
-             e.preventDefault();
              
                $.ajax({
                     type : "POST", 
@@ -150,7 +151,7 @@
 
                         
                         
-                        document.getElementById('url-content').innerHTML+=content
+                        document.getElementById('url-content').innerHTML=content
                         // onclick="window.open(`https://www.youtube.com/watch?v=DndKwldJOlw`,'_blank');"
                        //$('#output').html(data.msg) /* response message */
                     },
