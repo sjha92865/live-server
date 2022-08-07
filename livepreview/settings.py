@@ -28,15 +28,16 @@ load_dotenv(dotenv_path)
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get('DJANGO_DEBUG')) == "1" # 1 == True
+DEBUG = False # 1 == True
 # print(os.environ.get('DJANGO_DEBUG'),os.environ.get('DJANGO_SECRET_KEY'),os.environ.get('DJANGO_ALLOWED_HOSTS'))
 
-ALLOWED_HOSTS = ['127.0.0.1']
 
-if not DEBUG:
-    ALLOWED_HOSTS += os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
-print("AA",ALLOWED_HOSTS)
+ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS += os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
+
+    
+# print(DEBUG,ALLOWED_HOSTS)
 
 # Application definition
 
